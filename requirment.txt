@@ -1,0 +1,13 @@
+langchain
+langchain-core
+
+langchain-community
+langchain-groq
+python-dotenv
+fastapi
+uvicorn
+langchain-huggingface
+langchain-ollama
+sentence-transformers
+scikit-learn
+numpy
