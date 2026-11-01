@@ -1,4 +1,5 @@
 import langchain
+import os
 print("LangChain version:", langchain.__version__)
 from fastapi import FastAPI, HTTPException
 from fastapi.concurrency import run_in_threadpool
@@ -12,14 +13,20 @@ import json
 
 app = FastAPI(title="Amit Profile Assistant API")
 
-# Lets the Vite development server call this API from a different local port.
+# Comma-separated origins, configured in Render for the deployed Vercel app.
+allowed_origins = [
+    origin.strip()
+    for origin in os.getenv(
+        "FRONTEND_ORIGINS",
+        "http://localhost:5173,http://127.0.0.1:5173",
+    ).split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-    allow_credentials=True,
+    allow_origins=allowed_origins,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
