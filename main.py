@@ -54,11 +54,7 @@ MIN_SCORE = float(os.getenv("MIN_SCORE", "0.20"))  # below this, a chunk is trea
 RATE_LIMIT_PER_MIN = int(os.getenv("RATE_LIMIT_PER_MIN", "10"))
 MAX_HISTORY_TURNS = 4
 
-ALLOWED_ORIGINS = [
-    o.strip()
-    for o in os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
-    if o.strip()
-]
+ALLOWED_ORIGINS = ["*"]
 
 SYSTEM_PROMPT = """You are "Amit AI", the assistant on Amit Kumar's portfolio website. \
 Most visitors are recruiters and hiring managers, so be professional, warm and concise.
