@@ -45,7 +45,7 @@ log = logging.getLogger("amit-ai")
 # =====================================================================
 # CONFIG (environment variables)
 # =====================================================================
-GROQ_API_KEY =or os.getenv("GROQ_API_KEY") or os.getenv("XAI_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or os.getenv("XAI_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 CACHE_DIR = os.getenv("FASTEMBED_CACHE_DIR", str(Path(__file__).parent / "models_cache"))
